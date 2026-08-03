@@ -4,15 +4,38 @@
 [ext_resource type="Script" uid="uid://ibddg5awnbs3" path="res://Scripts/laser_manager.gd" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://btvwcb5oo5383" path="res://Scenes/alien.tscn" id="3_wrm1d"]
 
+[sub_resource type="GDScript" id="GDScript_fhrgm"]
+script/source = "extends Node2D
+"
+
+[sub_resource type="GDScript" id="GDScript_b6em2"]
+script/source = "extends Node2D
+
+@onready var health = 5
+
+func take_damage(damage: int):
+	if health > 0:
+		health -= damage
+	
+	if health <= 0:
+		get_parent().queue.free()
+"
+
 [node name="Game" type="Node2D" unique_id=1304310667]
 
 [node name="Ship" parent="." unique_id=549023596 instance=ExtResource("1_ebmjs")]
 position = Vector2(-22.999998, 237.99998)
 scale = Vector2(4, 4)
 
-[node name="Alien" parent="." unique_id=237368191 instance=ExtResource("3_wrm1d")]
+[node name="Enemies" type="Node2D" parent="." unique_id=1257757245]
+script = SubResource("GDScript_fhrgm")
+
+[node name="Alien" parent="Enemies" unique_id=237368191 instance=ExtResource("3_wrm1d")]
 position = Vector2(-28, 28)
 scale = Vector2(4, 4)
+
+[node name="Enemy Attributes" type="Node2D" parent="Enemies" unique_id=704441358]
+script = SubResource("GDScript_b6em2")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1696069843]
 
