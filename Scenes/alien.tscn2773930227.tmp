@@ -2,17 +2,18 @@
 
 [ext_resource type="Texture2D" uid="uid://cbk2qko3koo0q" path="res://Assets/Sprites/arcade_space_shooter.png" id="1_mdm8w"]
 
-[sub_resource type="GDScript" id="GDScript_fhrgm"]
+[sub_resource type="GDScript" id="GDScript_b6em2"]
 script/source = "extends CharacterBody2D
 
-@onready var ship: Node2D = $\"../Ship/CharacterBody2D\"
+@onready var ship: Node2D = $\"../Ship\"
 
 @export var speed = 100
+var direction := Vector2
 
 func _physics_process(delta: float) -> void:
-	var direction = global_position.direction_to(ship.global_position)
+	direction = global_position.direction_to(ship.global_position)
 	velocity = speed * direction
-	move_and_slide()	
+	move_and_slide()
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fhrgm"]
@@ -74,7 +75,8 @@ animations = [{
 radius = 6.0
 
 [node name="Alien Body" type="CharacterBody2D" unique_id=61057337]
-script = SubResource("GDScript_fhrgm")
+script = SubResource("GDScript_b6em2")
+speed = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2137587387]
 sprite_frames = SubResource("SpriteFrames_b3h60")
