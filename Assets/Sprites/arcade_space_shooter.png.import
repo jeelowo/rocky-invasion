@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqa1dyam55bja"
-path="res://.godot/imported/Main Ship - Engines - Big Pulse Engine - Idle.png-79fab573cb52801c1613fa8c0481d218.ctex"
+uid="uid://cbk2qko3koo0q"
+path="res://.godot/imported/arcade_space_shooter.png-f5a985ad7286cd4365aba5a819790510.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Main Ship/Main Ship - Engine Effects/Main Ship - Engines - Big Pulse Engine - Idle.png"
-dest_files=["res://.godot/imported/Main Ship - Engines - Big Pulse Engine - Idle.png-79fab573cb52801c1613fa8c0481d218.ctex"]
+source_file="res://Assets/Sprites/arcade_space_shooter.png"
+dest_files=["res://.godot/imported/arcade_space_shooter.png-f5a985ad7286cd4365aba5a819790510.ctex"]
 
 [params]
 
@@ -24,7 +24,7 @@ compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
-mipmaps/limit=-1
+mipmaps/limit=0
 roughness/mode=0
 roughness/src_normal=""
 process/channel_remap/red=0

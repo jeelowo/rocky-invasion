@@ -1,5 +1,68 @@
 [gd_scene format=3 uid="uid://do8ndu2abe383"]
 
+[ext_resource type="Script" uid="uid://ordmle2jwbkv" path="res://Scripts/movement.gd" id="1_78pfh"]
+[ext_resource type="Texture2D" uid="uid://cbk2qko3koo0q" path="res://Assets/Sprites/arcade_space_shooter.png" id="2_4qyt1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b6em2"]
+radius = 5.0
+height = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxxu3"]
+atlas = ExtResource("2_4qyt1")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4g0pa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxxu3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qyt1"]
+atlas = ExtResource("2_4qyt1")
+region = Rect2(48, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ejuo"]
+atlas = ExtResource("2_4qyt1")
+region = Rect2(48, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bge8u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qyt1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ejuo")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="Ship" type="Node2D" unique_id=549023596]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1297860889]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=41060823]
+position = Vector2(0, -1)
+script = ExtResource("1_78pfh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2137042372]
+position = Vector2(-4, 0.99999994)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_b6em2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=413365165]
+position = Vector2(-3, 1)
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_4g0pa")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=328958478]
+position = Vector2(-18, 1)
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_bge8u")
+autoplay = "default"
+frame_progress = 0.8951054

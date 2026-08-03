@@ -1,3 +1,20 @@
 [gd_scene format=3 uid="uid://b50q6slyw6hhe"]
 
+[ext_resource type="PackedScene" uid="uid://do8ndu2abe383" path="res://Scenes/ship.tscn" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://ibddg5awnbs3" path="res://Scenes/laser_manager.gd" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://btvwcb5oo5383" path="res://Scenes/alien.tscn" id="3_wrm1d"]
+
 [node name="Game" type="Node2D" unique_id=1304310667]
+
+[node name="Ship" parent="." unique_id=549023596 instance=ExtResource("1_ebmjs")]
+position = Vector2(-22.999998, 237.99998)
+scale = Vector2(4, 4)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1696069843]
+
+[node name="Laser Manager" type="Node" parent="." unique_id=843731914]
+script = ExtResource("2_qxrlw")
+
+[node name="Alien" parent="." unique_id=61057337 instance=ExtResource("3_wrm1d")]
+position = Vector2(-186, -154)
+scale = Vector2(4, 4)

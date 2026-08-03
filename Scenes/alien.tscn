@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://btvwcb5oo5383"]
+
+[ext_resource type="Texture2D" uid="uid://cbk2qko3koo0q" path="res://Assets/Sprites/arcade_space_shooter.png" id="1_mdm8w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhrgm"]
+atlas = ExtResource("1_mdm8w")
+region = Rect2(96, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26noy"]
+atlas = ExtResource("1_mdm8w")
+region = Rect2(112, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sw17"]
+atlas = ExtResource("1_mdm8w")
+region = Rect2(128, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f320"]
+atlas = ExtResource("1_mdm8w")
+region = Rect2(144, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s84hg"]
+atlas = ExtResource("1_mdm8w")
+region = Rect2(160, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhb2l"]
+atlas = ExtResource("1_mdm8w")
+region = Rect2(176, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b3h60"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhrgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26noy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sw17")
+}],
+"loop": 2,
+"name": &"first_variant",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4f320")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s84hg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhb2l")
+}],
+"loop": 1,
+"name": &"second_variant",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k27ix"]
+radius = 6.0
+
+[node name="Alien" type="CharacterBody2D" unique_id=61057337]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2137587387]
+sprite_frames = SubResource("SpriteFrames_b3h60")
+animation = &"second_variant"
+frame_progress = 0.7977098
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1389795897]
+shape = SubResource("CircleShape2D_k27ix")
