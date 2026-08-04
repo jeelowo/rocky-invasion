@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://b50q6slyw6hhe"]
 
 [ext_resource type="PackedScene" uid="uid://do8ndu2abe383" path="res://Scenes/ship.tscn" id="1_ebmjs"]
-[ext_resource type="PackedScene" uid="uid://b4df85xmd0gdo" path="res://Scenes/laser.tscn" id="3_3dryh"]
 [ext_resource type="PackedScene" uid="uid://btvwcb5oo5383" path="res://Scenes/alien.tscn" id="3_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://dtlyhwf1iymoj" path="res://Scenes/basic_laser.tscn" id="4_3dryh"]
 
@@ -22,13 +21,38 @@ func take_damage(damage: int):
 		get_parent().queue.free()
 "
 
-[sub_resource type="GDScript" id="GDScript_3dryh"]
-resource_name = "basic_laser"
-script/source = "extends Area2D
+[sub_resource type="GDScript" id="GDScript_4g0pa"]
+script/source = "extends Node2D
 
-@onready var laser: Node2D = $\"..\"
+var velocity
+var angle : float
+var direction : Vector2
+@export var laser_speed = 100
+@onready var ship: Node2D = $\"../Ship/CharacterBody2D\"
+
+func _ready() -> void:
+	preload(\"res://Scenes/basic_laser.tscn\")
 
 func _physics_process(delta: float) -> void:
+	print(direction)
+	
+func shoot(laser: Area2D):
+	print(\"shoot\")
+	angle = ship.global_rotation_degrees
+	direction = ship.global_position.direction_to(get_global_mouse_position())
+	#move_toward(0, direction,laser_speed)
+"
+
+[sub_resource type="GDScript" id="GDScript_wowpa"]
+script/source = "extends Area2D
+
+var ship_rotation
+@onready var laser: Node = $\"..\"
+
+func _ready() -> void:
+	preload(\"res://Scenes/basic_laser.tscn\")
+
+func _process(delta: float) -> void:
 	if Input.is_action_pressed(\"shoot\"):
 		laser.shoot(self)
 "
@@ -51,10 +75,10 @@ script = SubResource("GDScript_b6em2")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1696069843]
 
-[node name="Laser" parent="." unique_id=1956760472 instance=ExtResource("3_3dryh")]
-position = Vector2(24, -9)
+[node name="Laser2" type="Node2D" parent="." unique_id=1079814761]
+script = SubResource("GDScript_4g0pa")
 
-[node name="Basic_Laser" parent="Laser" unique_id=581207828 instance=ExtResource("4_3dryh")]
-position = Vector2(-184, -70)
+[node name="Basic Laser" parent="Laser2" unique_id=742311373 instance=ExtResource("4_3dryh")]
+position = Vector2(75, -1)
 scale = Vector2(4, 4)
-script = SubResource("GDScript_3dryh")
+script = SubResource("GDScript_wowpa")

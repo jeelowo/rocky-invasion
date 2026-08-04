@@ -3,29 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cbk2qko3koo0q" path="res://Assets/Sprites/arcade_space_shooter.png" id="1_rm4e5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4g0pa"]
-size = Vector2(2, 9)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l6q6d"]
-atlas = ExtResource("1_rm4e5")
-region = Rect2(32, 128, 8, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_infhb"]
-atlas = ExtResource("1_rm4e5")
-region = Rect2(40, 128, 8, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_b6em2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l6q6d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_infhb")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
+size = Vector2(9, 2)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b6em2"]
 lifetime_randomness = 0.22
@@ -39,22 +17,37 @@ angular_velocity_min = -92.70001
 angular_velocity_max = 37.079983
 radial_velocity_min = -2.2351742e-05
 radial_velocity_max = 5.9999776
-gravity = Vector3(-90, 0, 0)
+gravity = Vector3(0, 5, 0)
 collision_mode = 2
 
-[node name="Basic Laser" type="StaticBody2D" unique_id=742311373]
-rotation = 1.5707964
+[node name="Basic_Laser" type="Area2D" unique_id=581207828]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1405874665]
-position = Vector2(0, 0.5)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1132984863]
+rotation = 1.5707964
+texture = ExtResource("1_rm4e5")
+region_enabled = true
+region_rect = Rect2(34.989838, 132.00226, 10.015507, 8.999527)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=489635920]
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_4g0pa")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=395381859]
-sprite_frames = SubResource("SpriteFrames_b6em2")
-frame_progress = 0.053443592
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1405874665]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_4g0pa")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="." unique_id=354563955]
+position = Vector2(-6, 4)
+lifetime = 0.68
+preprocess = 0.74
+speed_scale = 7.61
+explosiveness = 0.5
+trail_sections = 2
+trail_section_subdivisions = 1
+process_material = SubResource("ParticleProcessMaterial_b6em2")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=587340482]
-position = Vector2(4.371139e-08, 1)
+position = Vector2(-6, -4)
 lifetime = 0.68
 preprocess = 0.74
 speed_scale = 7.61
