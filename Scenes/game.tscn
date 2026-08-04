@@ -26,12 +26,21 @@ func take_damage(damage: int):
 resource_name = "basic_laser"
 script/source = "extends Area2D
 
-@onready var laser: Node2D = $\"..\"
+var angle: float
+var speed = 1000
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_pressed(\"shoot\"):
-		laser.shoot(self)
+	global_position += transform.x * speed * delta
+	
+
+
+func _on_area_2d_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
+	area.queue_free()
+	print(\"laser deleted\")
 "
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6em2"]
+size = Vector2(1209, 687)
 
 [node name="Game" type="Node2D" unique_id=1304310667]
 
@@ -52,9 +61,15 @@ script = SubResource("GDScript_b6em2")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1696069843]
 
 [node name="Laser" parent="." unique_id=1956760472 instance=ExtResource("3_3dryh")]
-position = Vector2(24, -9)
 
 [node name="Basic_Laser" parent="Laser" unique_id=581207828 instance=ExtResource("4_3dryh")]
-position = Vector2(-184, -70)
 scale = Vector2(4, 4)
 script = SubResource("GDScript_3dryh")
+
+[node name="Area2D" type="Area2D" parent="Laser" unique_id=2061685828]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Laser/Area2D" unique_id=1185115502]
+position = Vector2(-0.5, 2.5)
+shape = SubResource("RectangleShape2D_b6em2")
+
+[connection signal="area_shape_exited" from="Laser/Area2D" to="Laser/Basic_Laser" method="_on_area_2d_area_shape_exited"]

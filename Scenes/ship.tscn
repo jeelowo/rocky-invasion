@@ -44,13 +44,13 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Node2D" type="Node2D" unique_id=1439204927]
+[node name="ship" type="Node2D" unique_id=1439204927]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=41060823]
 script = ExtResource("1_78pfh")
 
 [node name="StartingPoint" type="Marker2D" parent="CharacterBody2D" unique_id=1093796439]
-position = Vector2(-19.5, 0)
+position = Vector2(4.5, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2137042372]
 position = Vector2(-4, 0)

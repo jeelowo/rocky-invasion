@@ -11,18 +11,14 @@ var direction : Vector2
 
 func _ready() -> void:
 	preload(\"res://Scenes/basic_laser.tscn\")
-
-func _physics_process(delta: float) -> void:
-	print(direction)
+	
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(\"shoot\"):
+		print(\"\\\"PHEW!\\\"\")
 	
 func shoot(laser: Area2D):
 	laser.global_rotation_degrees = ship.global_rotation_degrees # set bullet rotation
-	
-	#print(\"shoot\")
 	laser.global_position = muzzle.global_position # set initial position to ship
-	direction = ship.global_position.direction_to(get_global_mouse_position())
-	print(direction)
-	laser.global_position += laser_speed * direction
 "
 
 [node name="Laser" type="Node2D" unique_id=1956760472]
