@@ -58,3 +58,5 @@ explosiveness = 0.5
 trail_sections = 2
 trail_section_subdivisions = 1
 process_material = SubResource("ParticleProcessMaterial_b6em2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

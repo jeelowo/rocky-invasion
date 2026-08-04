@@ -7,17 +7,27 @@ script/source = "extends CharacterBody2D
 
 @onready var ship: Node2D = $\"../../Ship/CharacterBody2D\"
 @export var speed = 60
+var health = 5
 
 func _ready() -> void:
-	add_to_group(\"enemies\")
+	add_to_group(\"enemy\")
 
 func movetoship():
 	var direction = global_position.direction_to(ship.global_position)
 	velocity = speed * direction
-	move_and_slide()	
-	
+	move_and_slide()
+
 func _physics_process(delta: float) -> void:
 	movetoship()
+
+func take_damage(amount: int):
+	if(health > 0):
+		health -= amount
+		print(health)
+	
+	if health <= 0:
+		print(\"dead\")
+		queue_free()
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fhrgm"]
