@@ -8,6 +8,9 @@ script/source = "extends CharacterBody2D
 @onready var ship: Node2D = $\"../../Ship/CharacterBody2D\"
 @export var speed = 60
 
+func _ready() -> void:
+	add_to_group(\"enemies\")
+
 func movetoship():
 	var direction = global_position.direction_to(ship.global_position)
 	velocity = speed * direction

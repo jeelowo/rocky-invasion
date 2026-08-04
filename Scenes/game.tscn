@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://do8ndu2abe383" path="res://Scenes/ship.tscn" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://b4df85xmd0gdo" path="res://Scenes/laser.tscn" id="3_3dryh"]
 [ext_resource type="PackedScene" uid="uid://btvwcb5oo5383" path="res://Scenes/alien.tscn" id="3_wrm1d"]
-[ext_resource type="PackedScene" uid="uid://dtlyhwf1iymoj" path="res://Scenes/basic_laser.tscn" id="4_3dryh"]
+[ext_resource type="Script" uid="uid://717cw0vg3pj7" path="res://Scenes/laser_range.gd" id="4_3dryh"]
 
 [sub_resource type="GDScript" id="GDScript_fhrgm"]
 script/source = "extends Node2D
@@ -20,23 +20,6 @@ func take_damage(damage: int):
 	
 	if health <= 0:
 		get_parent().queue.free()
-"
-
-[sub_resource type="GDScript" id="GDScript_3dryh"]
-resource_name = "basic_laser"
-script/source = "extends Area2D
-
-var angle: float
-var speed = 1000
-
-func _physics_process(delta: float) -> void:
-	global_position += transform.x * speed * delta
-	
-
-
-func _on_area_2d_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-	area.queue_free()
-	print(\"laser deleted\")
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6em2"]
@@ -62,14 +45,12 @@ script = SubResource("GDScript_b6em2")
 
 [node name="Laser" parent="." unique_id=1956760472 instance=ExtResource("3_3dryh")]
 
-[node name="Basic_Laser" parent="Laser" unique_id=581207828 instance=ExtResource("4_3dryh")]
-scale = Vector2(4, 4)
-script = SubResource("GDScript_3dryh")
+[node name="Laser Range" type="Area2D" parent="Laser" unique_id=2061685828]
+script = ExtResource("4_3dryh")
 
-[node name="Area2D" type="Area2D" parent="Laser" unique_id=2061685828]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Laser/Area2D" unique_id=1185115502]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Laser/Laser Range" unique_id=1185115502]
 position = Vector2(-0.5, 2.5)
 shape = SubResource("RectangleShape2D_b6em2")
 
-[connection signal="area_shape_exited" from="Laser/Area2D" to="Laser/Basic_Laser" method="_on_area_2d_area_shape_exited"]
+[connection signal="area_exited" from="Laser/Laser Range" to="Laser/Laser Range" method="_on_area_exited"]
+[connection signal="area_shape_exited" from="Laser/Laser Range" to="Laser" method="_on_laser_range_area_shape_exited"]

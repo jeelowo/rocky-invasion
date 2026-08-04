@@ -8,13 +8,13 @@ var direction : Vector2
 @export var laser_speed = 100.0
 @onready var ship: Node2D = $\"../Ship/CharacterBody2D\"
 @onready var muzzle: Marker2D = $\"../Ship/CharacterBody2D/StartingPoint\"
-
-func _ready() -> void:
-	preload(\"res://Scenes/basic_laser.tscn\")
+var basic_laser = preload(\"res://Scenes/basic_laser.tscn\")
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed(\"shoot\"):
-		print(\"\\\"PHEW!\\\"\")
+		var laser_shot = basic_laser.instantiate()
+		add_child(laser_shot)
+		shoot(laser_shot)
 	
 func shoot(laser: Area2D):
 	laser.global_rotation_degrees = ship.global_rotation_degrees # set bullet rotation

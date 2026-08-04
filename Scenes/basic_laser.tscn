@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dtlyhwf1iymoj"]
 
+[ext_resource type="Script" uid="uid://c4qv3xgf1cbyn" path="res://Scripts/basic_laser.gd" id="1_l6q6d"]
 [ext_resource type="Texture2D" uid="uid://cbk2qko3koo0q" path="res://Assets/Sprites/arcade_space_shooter.png" id="1_rm4e5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4g0pa"]
@@ -21,6 +22,8 @@ gravity = Vector3(0, 5, 0)
 collision_mode = 2
 
 [node name="Basic_Laser" type="Area2D" unique_id=581207828]
+scale = Vector2(4, 4)
+script = ExtResource("1_l6q6d")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1132984863]
 rotation = 1.5707964
