@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cbk2qko3koo0q" path="res://Assets/Sprites/arcade_space_shooter.png" id="1_rm4e5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4g0pa"]
-size = Vector2(9, 2)
+size = Vector2(4.5, 2)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b6em2"]
 lifetime_randomness = 0.22
@@ -23,6 +23,8 @@ collision_mode = 2
 
 [node name="Basic_Laser" type="Area2D" unique_id=581207828]
 scale = Vector2(4, 4)
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_l6q6d")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1132984863]
@@ -32,11 +34,11 @@ region_enabled = true
 region_rect = Rect2(34.989838, 132.00226, 10.015507, 8.999527)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=489635920]
-position = Vector2(0, -4)
+position = Vector2(-2.25, -4)
 shape = SubResource("RectangleShape2D_4g0pa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1405874665]
-position = Vector2(0, 4)
+position = Vector2(-2.25, 4)
 shape = SubResource("RectangleShape2D_4g0pa")
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="." unique_id=354563955]
