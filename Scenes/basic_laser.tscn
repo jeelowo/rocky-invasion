@@ -55,7 +55,8 @@ lifetime = 0.68
 preprocess = 0.74
 speed_scale = 7.61
 explosiveness = 0.5
-trail_sections = 2
+trail_lifetime = 3.4699999999999998
+trail_sections = 3
 trail_section_subdivisions = 1
 process_material = SubResource("ParticleProcessMaterial_b6em2")
 

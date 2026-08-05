@@ -6,26 +6,10 @@
 
 [sub_resource type="GDScript" id="GDScript_fhrgm"]
 script/source = "extends Node2D
-
-@onready var timer: Timer = $Timer
-@onready var path: PathFollow2D = $Path2D/PathFollow2D
-
-var alien_path = preload(\"res://Scenes/alien.tscn\")
-
-func _ready():
-	timer.timeout.connect(_on_timer_timeout)
+@onready var alien: CharacterBody2D = $Alien
 
 func spawn_alien():
-	path.set_progress_ratio(randf())
-	var spawn_location = path.global_position
-	var alien = alien_path.instantiate()
-	add_child(alien)
-	alien.global_position = spawn_location
-	#print(get_child_count())
-
-func _on_timer_timeout() -> void:
-	if get_child_count() <= 30:
-		spawn_alien()
+	pass
 "
 
 [sub_resource type="GDScript" id="GDScript_b6em2"]
@@ -55,16 +39,13 @@ size = Vector2(1209, 687)
 
 [node name="Ship" parent="." unique_id=549023596 instance=ExtResource("1_ebmjs")]
 position = Vector2(-22.999998, 237.99998)
+scale = Vector2(4, 4)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1257757245]
 script = SubResource("GDScript_fhrgm")
 
 [node name="Enemy Attributes" type="Node2D" parent="Enemies" unique_id=704441358]
 script = SubResource("GDScript_b6em2")
-
-[node name="Timer" type="Timer" parent="Enemies" unique_id=1885224381]
-wait_time = 0.5
-autostart = true
 
 [node name="Path2D" type="Path2D" parent="Enemies" unique_id=1668416534]
 curve = SubResource("Curve2D_3dryh")
@@ -83,9 +64,5 @@ script = ExtResource("4_3dryh")
 position = Vector2(-0.5, 2.5)
 shape = SubResource("RectangleShape2D_b6em2")
 
-[node name="Timer" type="Timer" parent="Laser" unique_id=2042852569]
-
-[connection signal="timeout" from="Enemies/Timer" to="Enemies/Enemy Attributes" method="_on_timer_timeout"]
 [connection signal="area_exited" from="Laser/Laser Range" to="Laser/Laser Range" method="_on_area_exited"]
 [connection signal="area_shape_exited" from="Laser/Laser Range" to="Laser" method="_on_laser_range_area_shape_exited"]
-[connection signal="timeout" from="Laser/Timer" to="Laser" method="_on_timer_timeout"]

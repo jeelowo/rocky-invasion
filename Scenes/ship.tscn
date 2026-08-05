@@ -45,6 +45,7 @@ animations = [{
 }]
 
 [node name="ship" type="Node2D" unique_id=1439204927]
+scale = Vector2(3, 3)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=41060823]
 script = ExtResource("1_78pfh")

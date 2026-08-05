@@ -11,7 +11,7 @@ var direction : Vector2
 var basic_laser = preload(\"res://Scenes/basic_laser.tscn\")
 	
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed(\"shoot\"):
+	if Input.is_action_pressed(\"shoot\"):
 		var laser_shot = basic_laser.instantiate()
 		add_child(laser_shot)
 		shoot(laser_shot)

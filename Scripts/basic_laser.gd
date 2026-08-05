@@ -12,5 +12,6 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy") and body.has_method("take_damage"):
 		body.take_damage(2)
+		self.queue_free()
 	else:
 		print("no mewthod")
