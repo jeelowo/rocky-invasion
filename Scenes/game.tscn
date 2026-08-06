@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ddch2qvxflcs3" path="res://Space.tscn" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://do8ndu2abe383" path="res://Scenes/ship.tscn" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://b4df85xmd0gdo" path="res://Scenes/laser.tscn" id="3_3dryh"]
+[ext_resource type="Script" uid="uid://wt1yv7qqmk1l" path="res://Scenes/spawn_loc.gd" id="3_wowpa"]
 [ext_resource type="Script" uid="uid://717cw0vg3pj7" path="res://Scenes/laser_range.gd" id="4_3dryh"]
 
 [sub_resource type="GDScript" id="GDScript_fhrgm"]
@@ -54,10 +55,13 @@ wait_time = 0.5
 autostart = true
 
 [node name="Path2D" type="Path2D" parent="Enemies" unique_id=1668416534]
+scale = Vector2(1.1, 1.1)
 curve = SubResource("Curve2D_3dryh")
+script = ExtResource("3_wowpa")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D" unique_id=61392205]
 position = Vector2(-617, -364)
+scale = Vector2(1.1, 1.1)
 
 [node name="Laser" parent="." unique_id=1956760472 instance=ExtResource("3_3dryh")]
 

@@ -70,7 +70,7 @@ position = Vector2(-23, 7.046223e-14)
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_bge8u")
 autoplay = "default"
-frame_progress = 0.63469476
+frame_progress = 0.99655473
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=296593065]
 position_smoothing_enabled = true
