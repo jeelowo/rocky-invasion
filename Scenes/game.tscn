@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b50q6slyw6hhe"]
 
+[ext_resource type="PackedScene" uid="uid://ddch2qvxflcs3" path="res://Space.tscn" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://do8ndu2abe383" path="res://Scenes/ship.tscn" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://b4df85xmd0gdo" path="res://Scenes/laser.tscn" id="3_3dryh"]
 [ext_resource type="Script" uid="uid://717cw0vg3pj7" path="res://Scenes/laser_range.gd" id="4_3dryh"]
@@ -39,6 +40,8 @@ point_count = 5
 size = Vector2(1209, 687)
 
 [node name="Game" type="Node2D" unique_id=1304310667]
+
+[node name="Grassland" parent="." unique_id=1463955707 instance=ExtResource("1_3dryh")]
 
 [node name="Ship" parent="." unique_id=549023596 instance=ExtResource("1_ebmjs")]
 position = Vector2(16.53, 0)

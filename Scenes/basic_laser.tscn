@@ -22,7 +22,7 @@ gravity = Vector3(0, 5, 0)
 collision_mode = 2
 
 [node name="Basic_Laser" type="Area2D" unique_id=581207828]
-scale = Vector2(4, 4)
+scale = Vector2(2, 2)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_l6q6d")
@@ -34,11 +34,11 @@ region_enabled = true
 region_rect = Rect2(34.989838, 132.00226, 10.015507, 8.999527)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=489635920]
-position = Vector2(-2.25, -4)
+position = Vector2(-6.695, -4)
 shape = SubResource("RectangleShape2D_4g0pa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1405874665]
-position = Vector2(-2.25, 4)
+position = Vector2(-6.695, 4)
 shape = SubResource("RectangleShape2D_4g0pa")
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="." unique_id=354563955]
@@ -57,7 +57,7 @@ lifetime = 0.68
 preprocess = 0.74
 speed_scale = 7.61
 explosiveness = 0.5
-trail_lifetime = 3.4699999999999998
+trail_lifetime = 3.47
 trail_sections = 3
 trail_section_subdivisions = 1
 process_material = SubResource("ParticleProcessMaterial_b6em2")
