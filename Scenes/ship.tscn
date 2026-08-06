@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ordmle2jwbkv" path="res://Scripts/movement.gd" id="1_78pfh"]
 [ext_resource type="Texture2D" uid="uid://cbk2qko3koo0q" path="res://Assets/Sprites/arcade_space_shooter.png" id="2_4qyt1"]
+[ext_resource type="PackedScene" uid="uid://8iv8cwisnjta" path="res://Scenes/health_component.tscn" id="3_xxxu3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b6em2"]
 radius = 5.0
@@ -69,8 +70,10 @@ position = Vector2(-23, 7.046223e-14)
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_bge8u")
 autoplay = "default"
-frame_progress = 0.8951054
+frame_progress = 0.63469476
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=296593065]
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
+
+[node name="Health Component" parent="CharacterBody2D" unique_id=950188334 instance=ExtResource("3_xxxu3")]
