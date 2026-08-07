@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://b8deglhl12uxc"]
+
+[ext_resource type="Texture2D" uid="uid://cbk2qko3koo0q" path="res://Assets/Sprites/arcade_space_shooter.png" id="1_2qqdy"]
+[ext_resource type="Script" uid="uid://bwlkk08g7ni7f" path="res://Scenes/pink.gd" id="1_13spw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13spw"]
+atlas = ExtResource("1_2qqdy")
+region = Rect2(96, 65, 16, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbrr2"]
+atlas = ExtResource("1_2qqdy")
+region = Rect2(112, 65, 16, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3mm2"]
+atlas = ExtResource("1_2qqdy")
+region = Rect2(128, 65, 16, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rh3yx"]
+atlas = ExtResource("1_2qqdy")
+region = Rect2(144, 65, 16, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdrv2"]
+atlas = ExtResource("1_2qqdy")
+region = Rect2(160, 65, 16, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b6em2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13spw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbrr2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3mm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rh3yx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdrv2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b6em2"]
+radius = 6.0827627
+
+[node name="Pink" type="Node2D" unique_id=268859899]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=819650548]
+script = ExtResource("1_13spw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1367131833]
+sprite_frames = SubResource("SpriteFrames_b6em2")
+frame_progress = 0.8949167
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1215923671]
+shape = SubResource("CircleShape2D_b6em2")

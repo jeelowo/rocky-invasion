@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://b50q6slyw6hhe"]
 
-[ext_resource type="Script" uid="uid://bxp1k2rprxia5" path="res://Scripts/game.gd" id="1_1l0tm"]
+[ext_resource type="Script" uid="uid://bxp1k2rprxia5" path="res://Scenes/game.gd" id="1_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://ddch2qvxflcs3" path="res://Scenes/Space.tscn" id="1_3dryh"]
-[ext_resource type="PackedScene" uid="uid://do8ndu2abe383" path="res://Scenes/ship.tscn" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://b4df85xmd0gdo" path="res://Scenes/laser.tscn" id="3_3dryh"]
 [ext_resource type="Script" uid="uid://wt1yv7qqmk1l" path="res://Scripts/spawn_loc.gd" id="3_wowpa"]
 [ext_resource type="Script" uid="uid://717cw0vg3pj7" path="res://Scripts/laser_range.gd" id="4_3dryh"]
@@ -47,8 +46,6 @@ size = Vector2(1209, 687)
 script = ExtResource("1_1l0tm")
 
 [node name="Space BG" parent="." unique_id=1463955707 instance=ExtResource("1_3dryh")]
-
-[node name="Ship" parent="." unique_id=1439204927 instance=ExtResource("1_ebmjs")]
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1257757245]
 script = SubResource("GDScript_fhrgm")
