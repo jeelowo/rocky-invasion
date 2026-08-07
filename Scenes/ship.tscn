@@ -70,10 +70,12 @@ position = Vector2(-23, 7.046223e-14)
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_bge8u")
 autoplay = "default"
-frame_progress = 0.99655473
+frame_progress = 0.9422193
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=296593065]
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="Health Component" parent="CharacterBody2D" unique_id=950188334 instance=ExtResource("3_xxxu3")]
+
+[connection signal="damaged" from="CharacterBody2D/Health Component" to="CharacterBody2D" method="_on_health_component_damaged"]

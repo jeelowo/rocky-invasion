@@ -8,6 +8,7 @@ var direction : Vector2
 @export var laser_speed = 100.0
 @export var cooldown = 0.2
 
+@onready var phew: AudioStreamPlayer2D = $Phew
 @onready var ship: Node2D = $\"../Ship/CharacterBody2D\"
 @onready var muzzle: Marker2D = $\"../Ship/CharacterBody2D/StartingPoint\"
 @onready var timer: Timer = $Timer
@@ -20,6 +21,7 @@ func _process(delta: float) -> void:
 			var laser_shot = basic_laser.instantiate()
 			add_child(laser_shot)
 			shoot(laser_shot)
+			phew.play()
 	
 func shoot(laser: Area2D):
 	laser.global_rotation_degrees = ship.global_rotation_degrees # set bullet rotation

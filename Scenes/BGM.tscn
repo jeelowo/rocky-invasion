@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cs7nvkq87v6x1"]
+
+[ext_resource type="AudioStream" uid="uid://1k11a5vm88mm" path="res://Assets/Sound/Original Tetris theme (Tetris Soundtrack).mp3" id="1_jijru"]
+
+[node name="Node2D" type="Node2D" unique_id=2105293950]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=395944079]
+stream = ExtResource("1_jijru")
+volume_db = -12.316
+autoplay = true

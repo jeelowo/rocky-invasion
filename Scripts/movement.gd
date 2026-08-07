@@ -12,3 +12,6 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 	move_and_slide()
+
+func _on_health_component_damaged(amount: int) -> void:
+	self.modulate = Color.RED

@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://b50q6slyw6hhe"]
 
-[ext_resource type="PackedScene" uid="uid://ddch2qvxflcs3" path="res://Space.tscn" id="1_3dryh"]
+[ext_resource type="PackedScene" uid="uid://ddch2qvxflcs3" path="res://Scenes/Space.tscn" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://do8ndu2abe383" path="res://Scenes/ship.tscn" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://b4df85xmd0gdo" path="res://Scenes/laser.tscn" id="3_3dryh"]
-[ext_resource type="Script" uid="uid://wt1yv7qqmk1l" path="res://Scenes/spawn_loc.gd" id="3_wowpa"]
-[ext_resource type="Script" uid="uid://717cw0vg3pj7" path="res://Scenes/laser_range.gd" id="4_3dryh"]
+[ext_resource type="Script" uid="uid://wt1yv7qqmk1l" path="res://Scripts/spawn_loc.gd" id="3_wowpa"]
+[ext_resource type="Script" uid="uid://717cw0vg3pj7" path="res://Scripts/laser_range.gd" id="4_3dryh"]
+[ext_resource type="AudioStream" uid="uid://br1lkhm4ux5l3" path="res://Assets/Sound/short-laser-sfx.wav" id="6_1l0tm"]
+[ext_resource type="PackedScene" uid="uid://cs7nvkq87v6x1" path="res://Scenes/BGM.tscn" id="6_i6g32"]
 
 [sub_resource type="GDScript" id="GDScript_fhrgm"]
 script/source = "extends Node2D
@@ -75,6 +77,13 @@ shape = SubResource("RectangleShape2D_b6em2")
 [node name="Timer" type="Timer" parent="Laser" unique_id=2042852569]
 wait_time = 0.2
 one_shot = true
+
+[node name="Phew" type="AudioStreamPlayer2D" parent="Laser" unique_id=1187941054]
+stream = ExtResource("6_1l0tm")
+volume_db = -9.579
+pitch_scale = 0.81
+
+[node name="BGM" parent="." unique_id=2105293950 instance=ExtResource("6_i6g32")]
 
 [connection signal="area_exited" from="Laser/Laser Range" to="Laser/Laser Range" method="_on_area_exited"]
 [connection signal="area_shape_exited" from="Laser/Laser Range" to="Laser" method="_on_laser_range_area_shape_exited"]
