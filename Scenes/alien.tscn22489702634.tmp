@@ -10,16 +10,13 @@ script/source = "extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
 @onready var ship: Node2D = $\"../../Ship/CharacterBody2D\"
-
 @export var speed = 60
 @export var can_split := true
-@export var start_animation := \"second_variant\"
 
 var health = 5
 
 func _ready() -> void:
 	add_to_group(\"enemy\")
-	animated_sprite_2d.play(start_animation)
 	
 func movetoship():
 	var direction = global_position.direction_to(ship.global_position)

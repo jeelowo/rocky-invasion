@@ -28,7 +28,7 @@ func spawn_alien():
 	#print(get_child_count())
 
 func _on_timer_timeout() -> void:
-	if get_child_count() <= 30:
+	if get_child_count() <= 100:
 		spawn_alien()
 "
 
@@ -44,10 +44,13 @@ size = Vector2(1209, 687)
 
 [node name="Game" type="Node2D" unique_id=1304310667]
 
-[node name="Grassland" parent="." unique_id=1463955707 instance=ExtResource("1_3dryh")]
+[node name="Space BG" parent="." unique_id=1463955707 instance=ExtResource("1_3dryh")]
 
 [node name="Ship" parent="." unique_id=549023596 instance=ExtResource("1_ebmjs")]
 position = Vector2(16.53, 0)
+
+[node name="BGM" parent="Ship" unique_id=2105293950 instance=ExtResource("6_i6g32")]
+position = Vector2(-16.53, 0)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1257757245]
 script = SubResource("GDScript_fhrgm")
@@ -67,6 +70,11 @@ scale = Vector2(1.1, 1.1)
 
 [node name="Laser" parent="." unique_id=1956760472 instance=ExtResource("3_3dryh")]
 
+[node name="Phew" type="AudioStreamPlayer2D" parent="Laser" unique_id=1187941054]
+stream = ExtResource("6_1l0tm")
+volume_db = -9.579
+pitch_scale = 0.22
+
 [node name="Laser Range" type="Area2D" parent="Laser" unique_id=2061685828]
 script = ExtResource("4_3dryh")
 
@@ -77,13 +85,6 @@ shape = SubResource("RectangleShape2D_b6em2")
 [node name="Timer" type="Timer" parent="Laser" unique_id=2042852569]
 wait_time = 0.2
 one_shot = true
-
-[node name="Phew" type="AudioStreamPlayer2D" parent="Laser" unique_id=1187941054]
-stream = ExtResource("6_1l0tm")
-volume_db = -9.579
-pitch_scale = 0.81
-
-[node name="BGM" parent="." unique_id=2105293950 instance=ExtResource("6_i6g32")]
 
 [connection signal="area_exited" from="Laser/Laser Range" to="Laser/Laser Range" method="_on_area_exited"]
 [connection signal="area_shape_exited" from="Laser/Laser Range" to="Laser" method="_on_laser_range_area_shape_exited"]
